@@ -6,6 +6,7 @@
 #include "Components/BoxComponent.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
+#include "Interfaces/LRInteractionInterface.h"
 #include "LRMagazine.generated.h"
 
 USTRUCT()
@@ -27,7 +28,7 @@ struct FLRMagazineData : public FTableRowBase
 };
 
 UCLASS()
-class LABYRINTH_API ALRMagazine : public AActor
+class LABYRINTH_API ALRMagazine : public AActor, public ILRInteractionInterface
 {
 	GENERATED_BODY()
 
@@ -63,4 +64,6 @@ public:
 	int GetMaxAmmoCount() const { return MagazineData ? MagazineData->MagazineCapacity : 0; }
 	void Fire() { --MagazineAmmo; UE_LOG(LogTemp, Warning, TEXT("%d"), MagazineAmmo); }
 	void PickUp();
+
+	virtual void Interact(ALRCharacter* Character) override;
 };

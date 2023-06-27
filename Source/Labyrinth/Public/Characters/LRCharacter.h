@@ -10,6 +10,7 @@
 #include "Components/LRLineTrace.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Labyrinth/Labyrinth.h"
 #include "Weapon/LRWeapon.h"
 #include "LRCharacter.generated.h"
 
@@ -84,6 +85,12 @@ public:
 	
 	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
 	 	TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
+	 	TSubclassOf<class UGameplayEffect> HealthDamageEffect;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
+	 	TSubclassOf<class UGameplayEffect> ArmorDamageEffect;
 	
 	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
 	 	TArray<TSubclassOf<class ULRCharacterGameplayAbility>> DefaultAbilities;
@@ -131,25 +138,19 @@ protected:
 
 	void Look(const FInputActionValue& Value);
 
-	void Jump();
+	virtual void Jump() override;
 
-	void StopJumping();
+	virtual void StopJumping() override;
 
 	//Interaction
-	void Interact();
-
-	UFUNCTION(Server, Reliable, WithValidation)
-		void Server_Interact(FVector EndLocation);
-	bool Server_Interact_Validate(FVector EndLocation);
-	void Server_Interact_Implementation(FVector EndLocation);
+	void Interact(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+		void Server_Interact();
 
 	//Attack Functionality
-	void Attack();
-
-	UFUNCTION(Server, Reliable, WithValidation)
-		void Server_Attack(FHitResult HitResult);
-	bool Server_Attack_Validate(FHitResult HitResult);
-	void Server_Attack_Implementation(FHitResult HitResult);
+	void Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+		void FireWeapon();
 
 	//Reload Functionality
 	void Reload();
@@ -185,9 +186,7 @@ protected:
 		void Multi_Die();
 	bool Multi_Die_Validate();
 	void Multi_Die_Implementation();
-
-	void AddWeapon(ALRWeapon* NewWeapon);
-
+	
 	UFUNCTION(BlueprintPure)
 		float GetHealth() const;
 
@@ -200,4 +199,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
+
+	void AddWeapon(ALRWeapon* NewWeapon);
+
+	FORCEINLINE ALRWeapon* GetWeapon() const { return Weapon; }
 };

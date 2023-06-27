@@ -7,6 +7,7 @@
 #include "Components/LRLineTrace.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
+#include "Interfaces/LRInteractionInterface.h"
 #include "LRWeapon.generated.h"
 
 class ALRMagazine;
@@ -34,7 +35,7 @@ struct FLRWeaponData : public FTableRowBase
 		FString SupportedMagazineName;
 };
 UCLASS()
-class LABYRINTH_API ALRWeapon : public AActor
+class LABYRINTH_API ALRWeapon : public AActor, public ILRInteractionInterface
 {
 	GENERATED_BODY()
 	
@@ -92,4 +93,6 @@ public:
 	void Reload();
 	void SetupWeapon();
 	void AddMagazine(ALRMagazine* Magazine);
+
+	virtual void Interact(ALRCharacter* Character) override;
 };

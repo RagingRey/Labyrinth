@@ -173,6 +173,11 @@ void ALRWeapon::AddMagazine(ALRMagazine* Magazine)
 	Magazine->PickUp();
 }
 
+void ALRWeapon::Interact(ALRCharacter* Character)
+{
+	Character->AddWeapon(this);
+}
+
 bool ALRWeapon::Server_SpawnMagazines_Validate(int Amount)
 {
 	return true;

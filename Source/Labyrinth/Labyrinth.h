@@ -10,6 +10,6 @@ enum class ELabyrinthAbilityInputID: uint8
 	None,
 	Confirm,
 	Cancel,
-	Fire,
+	Attack,
 	Interact
 };

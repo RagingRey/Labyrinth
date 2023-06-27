@@ -10,8 +10,11 @@
 #include "EnhancedInputComponent.h"
 #include "LRCharacterASC.h"
 #include "LRCharacterAttributeSet.h"
+#include "LRCharacterGameplayAbility.h"
 #include "LRGameMode.h"
+#include "Interfaces/LRInteractionInterface.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Labyrinth/Labyrinth.h"
 #include "Labyrinth/LabyrinthGameMode.h"
 #include "Net/UnrealNetwork.h"
 #include "Weapon/LRMagazine.h"
@@ -84,12 +87,6 @@ void ALRCharacter::InitializeAttributes()
 		}
 	}
 
-	if(AbilitySystemComponent /*&& DamageAttributeEffect && ReduceAttackAttributeEffect*/)
-	{
-		// AbilitySystemComponent->ApplyGameplayEffectToSelf(DamageAttributeEffect.GetDefaultObject(), 1.0f, FGameplayEffectContextHandle());
-		// AbilitySystemComponent->ApplyGameplayEffectToSelf(ReduceAttackAttributeEffect.GetDefaultObject(), 1.0f, FGameplayEffectContextHandle());
-	}
-
 	bAttributesInitialized = true;
 }
 
@@ -99,7 +96,7 @@ void ALRCharacter::GiveAbilities()
 	{
 		for (const TSubclassOf<ULRCharacterGameplayAbility>& StartupAbility : DefaultAbilities)
 		{
-			//AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(StartupAbility, 1, static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
+			AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(StartupAbility, 1, static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
 		}
 	}
 }
@@ -185,14 +182,16 @@ void ALRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ALRCharacter::Look);
 
 		//Fire Weapon
-		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &ALRCharacter::Attack);
+		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &ALRCharacter::Attack, true, ELabyrinthAbilityInputID::Attack);
+		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &ALRCharacter::Attack, false, ELabyrinthAbilityInputID::Attack);
 
 		//Aim Weapon
 		EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Triggered, this, &ALRCharacter::Aim);
 		EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Completed, this, &ALRCharacter::StopAiming);
 
 		//Interact
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::Interact);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::Interact, true, ELabyrinthAbilityInputID::Interact);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::Interact, false, ELabyrinthAbilityInputID::Interact);
 
 		//Reload
 		EnhancedInputComponent->BindAction(ReloadAction, ETriggerEvent::Triggered, this, &ALRCharacter::Reload);
@@ -289,7 +288,6 @@ void ALRCharacter::Server_UpdatePitch_Implementation(float Pitch)
 	PlayerPitch = Pitch;
 }
 
-
 void ALRCharacter::Jump()
 {
 	ACharacter::Jump();
@@ -302,109 +300,96 @@ void ALRCharacter::StopJumping()
 	bIsJumping = false;
 }
 
-void ALRCharacter::Interact()
+void ALRCharacter::Interact(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
 {
-	FVector CamStartLocation = FollowCamera->GetComponentLocation();
-	FVector CamEndLocation = CamStartLocation + (FollowCamera->GetForwardVector() * 2000.0f);
+	if (!AbilitySystemComponent) return;
 
-	FVector StartLocation = this->GetMesh()->GetBoneLocation("head");
-	FVector ImpactPoint = LineTraceComponent->LineTraceSingle(CamStartLocation, CamEndLocation, false).ImpactPoint;
-	FVector EndLocation;
-
-	if(!ImpactPoint.IsZero())
-	{
-		EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, ImpactPoint).Vector() * 2000.0f;
-	}
+	if(bPressed)
+		AbilitySystemComponent->AbilityLocalInputPressed(static_cast<int32>(AbilityInputID));
 	else
-	{
-		EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, CamEndLocation).Vector() * 2000.0f;
-	}
-
-	FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
-
-	if(Cast<ALRMagazine>(HitResult.GetActor()))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Interacted with magazine local"));
-		Server_Interact(EndLocation);
-	}
-	else if (Cast<ALRWeapon>(HitResult.GetActor()))
-	{
-		Server_Interact(EndLocation);
-	}
+		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
 }
 
-bool ALRCharacter::Server_Interact_Validate(FVector EndLocation)
-{
-	return true;
-}
-
-void ALRCharacter::Server_Interact_Implementation(FVector EndLocation)
+void ALRCharacter::Server_Interact_Implementation()
 {
 	if (HasAuthority())
 	{
+		FVector CamStartLocation = FollowCamera->GetComponentLocation();
+		FVector CamEndLocation = CamStartLocation + (FollowCamera->GetForwardVector() * 2000.0f);
+
 		FVector StartLocation = this->GetMesh()->GetBoneLocation("head");
+		FVector ImpactPoint = LineTraceComponent->LineTraceSingle(CamStartLocation, CamEndLocation, false).ImpactPoint;
+		FVector EndLocation;
 
-		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false);
-
-		if (ALRMagazine* Magazine = Cast<ALRMagazine>(HitResult.GetActor()))
+		if(!ImpactPoint.IsZero())
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Interacted with magazine server"));
-
-			if(Weapon)
-				Weapon->AddMagazine(Magazine);
-		}
-		else if (ALRWeapon* NewWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
-		{
-			AddWeapon(NewWeapon);
-		}
-	}
-}
-
-void ALRCharacter::Attack()
-{
-	if(Weapon)
-	{
-		if(bIsAiming)
-		{
-			FVector StartLocation = FollowCamera->GetComponentLocation();
-			FVector EndLocation = StartLocation + (FollowCamera->GetForwardVector() * 3500.0f);
-			FVector ImpactPoint = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false).ImpactPoint;
-
-			if(!ImpactPoint.IsZero())
-			{
-				Server_Attack(Weapon->Fire(ImpactPoint));
-			}
-			else
-			{
-				Server_Attack(Weapon->Fire(EndLocation));
-			}
+			EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, ImpactPoint).Vector() * 2000.0f;
 		}
 		else
 		{
-			Server_Attack(Weapon->Fire());
+			EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, CamEndLocation).Vector() * 2000.0f;
+		}
+
+		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
+
+		if(UKismetSystemLibrary::DoesImplementInterface(HitResult.GetActor(), ULRInteractionInterface::StaticClass()))
+		{
+			Cast<ILRInteractionInterface>(HitResult.GetActor())->Interact(this);
 		}
 	}
 }
 
-bool ALRCharacter::Server_Attack_Validate(FHitResult HitResult)
+void ALRCharacter::Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
 {
-	return true;
+	if (!AbilitySystemComponent) return;
+
+	if(bPressed)
+		AbilitySystemComponent->AbilityLocalInputPressed(static_cast<int32>(AbilityInputID));
+	else
+		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
 }
 
-void ALRCharacter::Server_Attack_Implementation(FHitResult HitResult)
+void ALRCharacter::FireWeapon_Implementation()
 {
 	if(HasAuthority())
 	{
-		Weapon->Fire(HitResult);
+		if(Weapon)
+		{
+			if(bIsAiming)
+			{
+				const FVector StartLocation = FollowCamera->GetComponentLocation();
+				const FVector EndLocation = StartLocation + (FollowCamera->GetForwardVector() * 3500.0f);
+				const FVector ImpactPoint = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false).ImpactPoint;
+		
+				if(!ImpactPoint.IsZero())
+				{
+					Weapon->Fire(ImpactPoint);
+				}
+				else
+				{
+					Weapon->Fire(EndLocation);
+				}
+			}
+			else
+			{
+				Weapon->Fire();
+			}
+		}
 	}
 }
 
 float ALRCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	if (GetHealth() <= 0.0f)
-		return 0.0;
-
-	//Remember to lower the health here
+	if(AbilitySystemComponent && HealthDamageEffect && ArmorDamageEffect)
+	{
+		if(const ALRCharacter* DamageInstigator = Cast<ALRCharacter>(DamageCauser))
+		{
+			if(GetArmor() <= 0.f)
+				DamageInstigator->GetAbilitySystemComponent()->ApplyGameplayEffectToTarget(DamageInstigator->HealthDamageEffect.GetDefaultObject(), this->GetAbilitySystemComponent(), 1.0f, FGameplayEffectContextHandle());
+			else
+				DamageInstigator->GetAbilitySystemComponent()->ApplyGameplayEffectToTarget(DamageInstigator->ArmorDamageEffect.GetDefaultObject(), this->GetAbilitySystemComponent(), 1.0f, FGameplayEffectContextHandle());
+		}
+	}
 	
 	if (GetHealth() <= 0.0f)
 		Die();
@@ -436,6 +421,7 @@ void ALRCharacter::Aim()
 	if(Weapon)
 		Server_Aim(true);
 
+	//Camera Movement
 	/*if (!CameraAimLocation.IsZero() && !CameraDefaultLocation.IsZero())
 	{
 		FVector NewLocation = UKismetMathLibrary::VInterpTo(FollowCamera->GetComponentLocation(), CameraAimLocation, GetWorld()->DeltaTimeSeconds, 10.0f);
@@ -448,6 +434,7 @@ void ALRCharacter::StopAiming()
 	if (Weapon)
 		Server_Aim(false);
 
+	//Camera Movement
 	/*if (!CameraAimLocation.IsZero() && !CameraDefaultLocation.IsZero())
 	{
 		FVector NewLocation = UKismetMathLibrary::VInterpTo(CameraAimLocation, CameraDefaultLocation, GetWorld()->DeltaTimeSeconds, 10.0f);

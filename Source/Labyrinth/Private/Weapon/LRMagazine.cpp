@@ -3,6 +3,7 @@
 
 #include "Weapon/LRMagazine.h"
 
+#include "Characters/LRCharacter.h"
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 
@@ -52,6 +53,12 @@ void ALRMagazine::PickUp()
 {
 	bMagazineInUse = true;
 	OnRep_MagazineUsed();
+}
+
+void ALRMagazine::Interact(ALRCharacter* Character)
+{
+	if(Character->GetWeapon())
+		Character->GetWeapon()->AddMagazine(this);
 }
 
 void ALRMagazine::OnRep_MagazineUsed()
