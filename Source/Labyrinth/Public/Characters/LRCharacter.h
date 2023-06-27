@@ -5,15 +5,16 @@
 #include "CoreMinimal.h"
 #include "InputActionValue.h"
 #include "Camera/CameraComponent.h"
+#include "AbilitySystemInterface.h"
+#include "LRCharacterAttributeSet.h"
 #include "Components/LRLineTrace.h"
-#include "Components/LRPlayerStats.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Weapon/LRWeapon.h"
 #include "LRCharacter.generated.h"
 
 UCLASS()
-class LABYRINTH_API ALRCharacter : public ACharacter
+class LABYRINTH_API ALRCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -25,6 +26,7 @@ class LABYRINTH_API ALRCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 		UCameraComponent* FollowCamera;
 
+	//Inputs
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputMappingContext* LabyrinthMappingContext;
 
@@ -58,8 +60,33 @@ class LABYRINTH_API ALRCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputAction* ReloadAction;
 
+	/**Ability System Component**/
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
+		class ULRCharacterASC* AbilitySystemComponent;
+	
+	bool bAttributesInitialized;
+	
+	/**Attribute Set**/
+	UPROPERTY()
+		class ULRCharacterAttributeSet* AttributeSet;
+
 public:
 	ALRCharacter();
+
+	//Ability System Components
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+	 virtual void  InitializeAttributes();
+	 virtual void  GiveAbilities();
+	
+	 virtual void PossessedBy(AController* NewController) override;
+	 virtual void OnRep_PlayerState() override;
+	
+	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
+	 	TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;
+	
+	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
+	 	TArray<TSubclassOf<class ULRCharacterGameplayAbility>> DefaultAbilities;
 	
 protected:
 	UPROPERTY(BlueprintReadOnly)
@@ -89,9 +116,6 @@ protected:
 	//Player's Component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerComponent)
 		TObjectPtr<ULRLineTrace> LineTraceComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerComponent)
-		TObjectPtr<ULRPlayerStats> PlayerStatComponent;
 
 protected:
 	virtual void BeginPlay() override;
@@ -165,10 +189,10 @@ protected:
 	void AddWeapon(ALRWeapon* NewWeapon);
 
 	UFUNCTION(BlueprintPure)
-		float GetHealth() const { return PlayerStatComponent->GetHealth(); }
+		float GetHealth() const;
 
 	UFUNCTION(BlueprintPure)
-		float GetArmor() const { return PlayerStatComponent->GetArmor(); }
+		float GetArmor() const;
 
 public:
 	virtual void Tick(float DeltaTime) override;

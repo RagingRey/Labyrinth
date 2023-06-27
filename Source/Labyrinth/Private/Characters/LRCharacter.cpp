@@ -8,6 +8,8 @@
 #include "Components/CapsuleComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "LRCharacterASC.h"
+#include "LRCharacterAttributeSet.h"
 #include "LRGameMode.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Labyrinth/LabyrinthGameMode.h"
@@ -46,11 +48,79 @@ ALRCharacter::ALRCharacter()
 
 	//Components
 	LineTraceComponent = CreateDefaultSubobject<ULRLineTrace>(TEXT("Line Trace Component"));
-	PlayerStatComponent = CreateDefaultSubobject<ULRPlayerStats>(TEXT("Player Stats"));
+
+	AbilitySystemComponent = CreateDefaultSubobject<ULRCharacterASC>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+	
+	AttributeSet = CreateDefaultSubobject<ULRCharacterAttributeSet>("Attributes");
+	
+	bAttributesInitialized = false;
 
 	//Defined Variables
 	bIsJumping = false;
 	bIsSprinting = false;
+}
+
+UAbilitySystemComponent* ALRCharacter::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
+void ALRCharacter::InitializeAttributes()
+{
+	check(AbilitySystemComponent);
+	
+	if(AbilitySystemComponent && DefaultAttributeEffect)
+	{
+		FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+		EffectContext.AddSourceObject(this);
+
+		const FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributeEffect, 1, EffectContext);
+
+		if(SpecHandle.IsValid())
+		{
+			FActiveGameplayEffectHandle GEHandle  = AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+		}
+	}
+
+	if(AbilitySystemComponent /*&& DamageAttributeEffect && ReduceAttackAttributeEffect*/)
+	{
+		// AbilitySystemComponent->ApplyGameplayEffectToSelf(DamageAttributeEffect.GetDefaultObject(), 1.0f, FGameplayEffectContextHandle());
+		// AbilitySystemComponent->ApplyGameplayEffectToSelf(ReduceAttackAttributeEffect.GetDefaultObject(), 1.0f, FGameplayEffectContextHandle());
+	}
+
+	bAttributesInitialized = true;
+}
+
+void ALRCharacter::GiveAbilities()
+{
+	if(HasAuthority() && AbilitySystemComponent)
+	{
+		for (const TSubclassOf<ULRCharacterGameplayAbility>& StartupAbility : DefaultAbilities)
+		{
+			//AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(StartupAbility, 1, static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
+		}
+	}
+}
+
+void ALRCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+
+	InitializeAttributes();
+	GiveAbilities();
+}
+
+void ALRCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+
+	InitializeAttributes();
 }
 
 // Called when the game starts or when spawned
@@ -334,7 +404,8 @@ float ALRCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	if (GetHealth() <= 0.0f)
 		return 0.0;
 
-	PlayerStatComponent->LowerArmor(DamageAmount);
+	//Remember to lower the health here
+	
 	if (GetHealth() <= 0.0f)
 		Die();
 
@@ -437,4 +508,18 @@ void ALRCharacter::AddWeapon(ALRWeapon* NewWeapon)
 		Weapon->AttachToComponent(this->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("GunPoint"));
 		Weapon->SetOwner(this);
 	}
+}
+
+float ALRCharacter::GetHealth() const
+{
+	if(AttributeSet) return AttributeSet->GetHealth();
+
+	return 1.f;
+}
+
+float ALRCharacter::GetArmor() const
+{
+	if(AttributeSet) return AttributeSet->GetArmor();
+
+	return 1.f;
 }
