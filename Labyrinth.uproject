@@ -12,6 +12,11 @@
 				"Engine",
 				"GameplayAbilities"
 			]
+		},
+		{
+			"Name": "Weapons",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
