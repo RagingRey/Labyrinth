@@ -9,10 +9,19 @@
   <component name="ChangeListManager">
     <list default="true" id="877ae1fb-4f6e-49ba-a557-b1c16d7bb5bc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labyrinth.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Labyrinth.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth.Target.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/LabyrinthEditor.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LabyrinthEditor.Target.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/MX/KJGJWZ37R5VRZ0OXZ2JW5S.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/XP/440OLMZB3I6S3MW2NHFNHY.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Components/LRLineTrace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/Components/LRLineTrace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Interfaces/LRInteractionInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/Interfaces/LRInteractionInterface.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Weapon/LRMagazine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRMagazine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Weapon/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Components/LRLineTrace.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/Components/LRLineTrace.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Interfaces/LRInteractionInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/Interfaces/LRInteractionInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Weapon/LRMagazine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRMagazine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Weapon/LRWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRWeapon.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +132,7 @@
       <workItem from="1687883034767" duration="393000" />
       <workItem from="1687884034832" duration="935000" />
       <workItem from="1687885010063" duration="3642000" />
+      <workItem from="1688158458306" duration="1025000" />
     </task>
     <servers />
   </component>
@@ -132,5 +142,16 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/Weapons/Private/LRMagazine.cpp</url>
+          <line>58</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

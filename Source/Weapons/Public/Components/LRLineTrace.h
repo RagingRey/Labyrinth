@@ -9,7 +9,7 @@
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class LABYRINTH_API ULRLineTrace : public UActorComponent
+class WEAPONS_API ULRLineTrace : public UActorComponent
 {
 	GENERATED_BODY()
 

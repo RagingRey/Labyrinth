@@ -35,7 +35,7 @@ struct FLRWeaponData : public FTableRowBase
 		FString SupportedMagazineName;
 };
 UCLASS()
-class LABYRINTH_API ALRWeapon : public AActor, public ILRInteractionInterface
+class WEAPONS_API ALRWeapon : public AActor
 {
 	GENERATED_BODY()
 	
@@ -94,5 +94,5 @@ public:
 	void SetupWeapon();
 	void AddMagazine(ALRMagazine* Magazine);
 
-	virtual void Interact(ALRCharacter* Character) override;
+	//virtual void Interact(ALRCharacter* Character) override;
 };

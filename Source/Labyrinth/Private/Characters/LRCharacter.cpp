@@ -15,9 +15,8 @@
 #include "Interfaces/LRInteractionInterface.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Labyrinth/Labyrinth.h"
-#include "Labyrinth/LabyrinthGameMode.h"
 #include "Net/UnrealNetwork.h"
-#include "Weapon/LRMagazine.h"
+#include "Weapons/Public/LRMagazine.h"
 
 //Sets Default values on Instantiation of the Class
 ALRCharacter::ALRCharacter()
@@ -332,10 +331,10 @@ void ALRCharacter::Server_Interact_Implementation()
 
 		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
 
-		if(UKismetSystemLibrary::DoesImplementInterface(HitResult.GetActor(), ULRInteractionInterface::StaticClass()))
-		{
-			Cast<ILRInteractionInterface>(HitResult.GetActor())->Interact(this);
-		}
+		// if(UKismetSystemLibrary::DoesImplementInterface(HitResult.GetActor(), ULRInteractionInterface::StaticClass()))
+		// {
+		// 	Cast<ILRInteractionInterface>(HitResult.GetActor())->Interact(this);
+		// }
 	}
 }
 

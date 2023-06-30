@@ -11,7 +11,7 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Labyrinth/Labyrinth.h"
-#include "Weapon/LRWeapon.h"
+#include "Weapons/Public/LRWeapon.h"
 #include "LRCharacter.generated.h"
 
 UCLASS()

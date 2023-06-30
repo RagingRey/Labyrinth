@@ -28,7 +28,7 @@ struct FLRMagazineData : public FTableRowBase
 };
 
 UCLASS()
-class LABYRINTH_API ALRMagazine : public AActor, public ILRInteractionInterface
+class WEAPONS_API ALRMagazine : public AActor
 {
 	GENERATED_BODY()
 
@@ -65,5 +65,5 @@ public:
 	void Fire() { --MagazineAmmo; UE_LOG(LogTemp, Warning, TEXT("%d"), MagazineAmmo); }
 	void PickUp();
 
-	virtual void Interact(ALRCharacter* Character) override;
+	//virtual void Interact(ALRCharacter* Character) override;
 };

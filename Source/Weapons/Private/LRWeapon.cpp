@@ -1,15 +1,14 @@
 // Labyrinth, copyright Rage Games 2023, all rights reserved.
 
 
-#include "Weapon/LRWeapon.h"
+#include "LRWeapon.h"
 
-#include "Characters/LRCharacter.h"
+//#include "Characters/LRCharacter.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/DamageEvents.h"
 #include "Net/UnrealNetwork.h"
-#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
-#include "Weapon/LRMagazine.h"
+#include "LRMagazine.h"
 
 // Sets default values
 ALRWeapon::ALRWeapon()
@@ -84,10 +83,10 @@ FHitResult ALRWeapon::Fire(FVector End)
 		CurrentMagazine->Fire();
 
 		FHitResult ClientHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
-		if (ALRCharacter* Character = Cast<ALRCharacter>(ClientHitResult.GetActor()))
-		{
-			Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
-		}
+		// if (ALRCharacter* Character = Cast<ALRCharacter>(ClientHitResult.GetActor()))
+		// {
+		// 	Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
+		// }
 
 		return ClientHitResult;
 	}
@@ -108,10 +107,10 @@ FHitResult ALRWeapon::Fire(FHitResult HitResult)
 
 			FHitResult ServerHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false);
 
-			if(ALRCharacter* Character = Cast<ALRCharacter>(ServerHitResult.GetActor()))
-			{
-				Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
-			}
+			// if(ALRCharacter* Character = Cast<ALRCharacter>(ServerHitResult.GetActor()))
+			// {
+			// 	Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
+			// }
 		}
 	}
 
@@ -173,10 +172,10 @@ void ALRWeapon::AddMagazine(ALRMagazine* Magazine)
 	Magazine->PickUp();
 }
 
-void ALRWeapon::Interact(ALRCharacter* Character)
-{
-	Character->AddWeapon(this);
-}
+// void ALRWeapon::Interact(ALRCharacter* Character)
+// {
+// 	Character->AddWeapon(this);
+// }
 
 bool ALRWeapon::Server_SpawnMagazines_Validate(int Amount)
 {

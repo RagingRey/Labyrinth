@@ -18,11 +18,11 @@ class ULRInteractionInterface : public UInterface
 /**
  * 
  */
-class LABYRINTH_API ILRInteractionInterface
+class WEAPONS_API ILRInteractionInterface
 {
 	GENERATED_BODY()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void Interact(ALRCharacter* Character) = 0;
+	//virtual void Interact(ALRCharacter* Character) = 0;
 };
