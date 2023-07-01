@@ -55,12 +55,6 @@ void ALRMagazine::PickUp()
 	OnRep_MagazineUsed();
 }
 
-// void ALRMagazine::Interact(ALRCharacter* Character)
-// {
-// 	if(Character->GetWeapon())
-// 		Character->GetWeapon()->AddMagazine(this);
-// }
-
 void ALRMagazine::OnRep_MagazineUsed()
 {
 	this->MagazineMeshComponent->SetHiddenInGame(bMagazineInUse);

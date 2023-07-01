@@ -6,12 +6,12 @@
 #include "InputActionValue.h"
 #include "Camera/CameraComponent.h"
 #include "AbilitySystemInterface.h"
-#include "LRCharacterAttributeSet.h"
-#include "Components/LRLineTrace.h"
+#include "Abilities/LRCharacterAttributeSet.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Labyrinth/Labyrinth.h"
 #include "Weapons/Public/LRWeapon.h"
+#include "Weapons/Public/Components/LRLineTrace.h"
 #include "LRCharacter.generated.h"
 
 UCLASS()
