@@ -5,7 +5,6 @@
 
 //#include "Characters/LRCharacter.h"
 #include "Components/SkeletalMeshComponent.h"
-#include "Engine/DamageEvents.h"
 #include "Net/UnrealNetwork.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "LRMagazine.h"
@@ -171,11 +170,6 @@ void ALRWeapon::AddMagazine(ALRMagazine* Magazine)
 	UE_LOG(LogTemp, Warning, TEXT("Extra Mag: %d"), ExtraMagazines.Num());
 	Magazine->PickUp();
 }
-
-// void ALRWeapon::Interact(ALRCharacter* Character)
-// {
-// 	Character->AddWeapon(this);
-// }
 
 bool ALRWeapon::Server_SpawnMagazines_Validate(int Amount)
 {

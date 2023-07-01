@@ -8,11 +8,9 @@
 #include "Components/CapsuleComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-#include "LRCharacterASC.h"
-#include "LRCharacterAttributeSet.h"
-#include "LRCharacterGameplayAbility.h"
+#include "Abilities/LRCharacterASC.h"
+#include "Abilities/LRCharacterGameplayAbility.h"
 #include "LRGameMode.h"
-#include "Interfaces/LRInteractionInterface.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Labyrinth/Labyrinth.h"
 #include "Net/UnrealNetwork.h"
@@ -331,10 +329,15 @@ void ALRCharacter::Server_Interact_Implementation()
 
 		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
 
-		// if(UKismetSystemLibrary::DoesImplementInterface(HitResult.GetActor(), ULRInteractionInterface::StaticClass()))
-		// {
-		// 	Cast<ILRInteractionInterface>(HitResult.GetActor())->Interact(this);
-		// }
+		if(ALRWeapon* InteractedWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
+		{
+			AddWeapon(InteractedWeapon);
+		}
+		else if(ALRMagazine* InteractedMagazine = Cast<ALRMagazine>(HitResult.GetActor()))
+		{
+			if(Weapon)
+				Weapon->AddMagazine(InteractedMagazine);				
+		}
 	}
 }
 

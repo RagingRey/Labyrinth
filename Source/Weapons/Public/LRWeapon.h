@@ -7,7 +7,6 @@
 #include "Components/LRLineTrace.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
-#include "Interfaces/LRInteractionInterface.h"
 #include "LRWeapon.generated.h"
 
 class ALRMagazine;
@@ -26,7 +25,7 @@ struct FLRWeaponData : public FTableRowBase
 		UAnimationAsset* FireAnimation;
 
 	UPROPERTY(EditAnywhere)
-		UAnimationAsset* ReloadAnimation;
+		TArray<UAnimationAsset*> ReloadAnimation;
 
 	UPROPERTY(EditAnywhere)
 		TArray<TObjectPtr<UParticleSystem>> WeaponFXs;
@@ -46,12 +45,12 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Properties)
 		TObjectPtr<USkeletalMeshComponent> WeaponMeshComponent;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = Utilities)
 		TObjectPtr<UDataTable> WeaponDataTable;
 
 	FLRWeaponData* WeaponData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Properties)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utilities)
 		TSubclassOf<ALRMagazine> WeaponMagazine_Class;
 
 	UPROPERTY(Replicated)
@@ -64,7 +63,7 @@ protected:
 
 	UAnimationAsset* FireAnimation;
 
-	UAnimationAsset* ReloadAnimation;
+	TArray<UAnimationAsset*> ReloadAnimation;
 
 	TArray<TObjectPtr<UParticleSystem>> WeaponFXs;
 
@@ -93,6 +92,4 @@ public:
 	void Reload();
 	void SetupWeapon();
 	void AddMagazine(ALRMagazine* Magazine);
-
-	//virtual void Interact(ALRCharacter* Character) override;
 };

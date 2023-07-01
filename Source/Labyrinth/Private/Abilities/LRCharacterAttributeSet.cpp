@@ -1,7 +1,7 @@
 // Labyrinth, copyright Rage Games 2023, all rights reserved.
 
 
-#include "LRCharacterAttributeSet.h"
+#include "Abilities/LRCharacterAttributeSet.h"
 
 #include "Net/UnrealNetwork.h"
 

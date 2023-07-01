@@ -6,7 +6,6 @@
 #include "Components/BoxComponent.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
-#include "Interfaces/LRInteractionInterface.h"
 #include "LRMagazine.generated.h"
 
 USTRUCT()
@@ -46,7 +45,7 @@ protected:
 	UPROPERTY(ReplicatedUsing = OnRep_MagazineUsed)
 		bool bMagazineInUse;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = Utilities)
 		UDataTable* MagazineDataTable;
 
 	FLRMagazineData* MagazineData;
@@ -64,6 +63,4 @@ public:
 	int GetMaxAmmoCount() const { return MagazineData ? MagazineData->MagazineCapacity : 0; }
 	void Fire() { --MagazineAmmo; UE_LOG(LogTemp, Warning, TEXT("%d"), MagazineAmmo); }
 	void PickUp();
-
-	//virtual void Interact(ALRCharacter* Character) override;
 };
