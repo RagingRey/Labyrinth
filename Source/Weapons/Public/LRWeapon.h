@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "Animation/AnimationAsset.h"
 #include "Components/LRLineTrace.h"
 #include "Engine/DataTable.h"
@@ -34,7 +35,7 @@ struct FLRWeaponData : public FTableRowBase
 		FString SupportedMagazineName;
 };
 UCLASS()
-class WEAPONS_API ALRWeapon : public AActor
+class WEAPONS_API ALRWeapon : public AActor, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 	
@@ -69,7 +70,32 @@ protected:
 
 	TObjectPtr<ULRLineTrace> LineTraceComponent;
 
+	/**Ability System Component**/
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
+		class ULRWeaponASC* AbilitySystemComponent;
+	
+	bool bAttributesInitialized;
+	
+	/**Attribute Set**/
+	UPROPERTY()
+		class ULRWeaponAttributeSet* AttributeSet;
+
 protected:
+	//Ability System Components
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+	virtual void  InitializeAttributes();
+	virtual void  GiveAbilities();
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Weapon|Abilities")
+		TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Weapon|Abilities")
+		TSubclassOf<class UGameplayEffect> DamageAttributeEffect;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Weapon|Abilities")
+		TArray<TSubclassOf<class ULRWeaponGameplayAbility>> DefaultAbilities;
+	
 	virtual void BeginPlay() override;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;

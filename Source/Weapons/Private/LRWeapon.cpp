@@ -4,10 +4,15 @@
 #include "LRWeapon.h"
 
 //#include "Characters/LRCharacter.h"
+#include "GameplayEffectTypes.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "LRMagazine.h"
+#include "Abilities/LRWeaponASC.h"
+#include "Abilities/LRWeaponAttributeSet.h"
+#include "Abilities/LRWeaponGameplayAbility.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ALRWeapon::ALRWeapon()
@@ -15,7 +20,52 @@ ALRWeapon::ALRWeapon()
 	WeaponMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon Mesh"));
 	this->RootComponent = WeaponMeshComponent;
 
+	//Components
 	LineTraceComponent = CreateDefaultSubobject<ULRLineTrace>("Line Trace Component");
+
+	AbilitySystemComponent = CreateDefaultSubobject<ULRWeaponASC>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+	
+	AttributeSet = CreateDefaultSubobject<ULRWeaponAttributeSet>("Attributes");
+	
+	bAttributesInitialized = false;
+}
+
+UAbilitySystemComponent* ALRWeapon::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
+void ALRWeapon::InitializeAttributes()
+{
+	check(AbilitySystemComponent);
+	
+	if(AbilitySystemComponent && DefaultAttributeEffect)
+	{
+		FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+		EffectContext.AddSourceObject(this);
+
+		const FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributeEffect, 1, EffectContext);
+
+		if(SpecHandle.IsValid())
+		{
+			FActiveGameplayEffectHandle GEHandle  = AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+		}
+	}
+
+	bAttributesInitialized = true;
+}
+
+void ALRWeapon::GiveAbilities()
+{
+	if(HasAuthority() && AbilitySystemComponent)
+	{
+		for (const TSubclassOf<ULRWeaponGameplayAbility>& StartupAbility : DefaultAbilities)
+		{
+			AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(StartupAbility, 1, static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
+		}
+	}
 }
 
 void ALRWeapon::BeginPlay()
@@ -58,15 +108,28 @@ void ALRWeapon::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetim
 
 FHitResult ALRWeapon::Fire()
 {
-	if(CurrentMagazine && CurrentMagazine->GetMagazineCount())
+	if(HasAuthority())
 	{
-		FVector StartLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash");
-		FRotator Rotation = WeaponMeshComponent->GetSocketRotation("MuzzleFlash");
-		FVector EndLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash") + Rotation.Vector() * 3500;
+		if(CurrentMagazine && CurrentMagazine->GetMagazineCount())
+		{
+			FVector StartLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash");
+			FRotator Rotation = WeaponMeshComponent->GetSocketRotation("MuzzleFlash");
+			FVector EndLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash") + Rotation.Vector() * 3500;
 
-		//CurrentMagazine->Fire();
+			CurrentMagazine->Fire();
 
-		return LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
+			FHitResult ServerHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
+
+			if(DamageAttributeEffect && UKismetSystemLibrary::DoesImplementInterface(ServerHitResult.GetActor(), UAbilitySystemInterface::StaticClass()))
+			{
+				AbilitySystemComponent->ApplyGameplayEffectToTarget(DamageAttributeEffect.GetDefaultObject(),
+					Cast<IAbilitySystemInterface>(ServerHitResult.GetActor())->GetAbilitySystemComponent());
+			}
+
+			//UGameplayStatics::ApplyDamage(ServerHitResult.GetActor(), 10.f, this->GetOwner()->GetInstigatorController(), this->GetOwner(), UDamageType::StaticClass());
+
+			return ServerHitResult;
+		}	
 	}
 
 	return FHitResult();
@@ -74,20 +137,27 @@ FHitResult ALRWeapon::Fire()
 
 FHitResult ALRWeapon::Fire(FVector End)
 {
-	if (CurrentMagazine && CurrentMagazine->GetMagazineCount())
+	if(HasAuthority())
 	{
-		FVector StartLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash");
-		FVector EndLocation = StartLocation + (UKismetMathLibrary::FindLookAtRotation(StartLocation, End).Vector() * 3500);
+		if (CurrentMagazine && CurrentMagazine->GetMagazineCount())
+		{
+			FVector StartLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash");
+			FVector EndLocation = StartLocation + (UKismetMathLibrary::FindLookAtRotation(StartLocation, End).Vector() * 3500);
 
-		CurrentMagazine->Fire();
+			CurrentMagazine->Fire();
 
-		FHitResult ClientHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
-		// if (ALRCharacter* Character = Cast<ALRCharacter>(ClientHitResult.GetActor()))
-		// {
-		// 	Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
-		// }
+			FHitResult ServerHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
 
-		return ClientHitResult;
+			if(DamageAttributeEffect && UKismetSystemLibrary::DoesImplementInterface(ServerHitResult.GetActor(), UAbilitySystemInterface::StaticClass()))
+			{
+				AbilitySystemComponent->ApplyGameplayEffectToTarget(DamageAttributeEffect.GetDefaultObject(),
+					Cast<IAbilitySystemInterface>(ServerHitResult.GetActor())->GetAbilitySystemComponent());
+			}
+
+			//UGameplayStatics::ApplyDamage(ServerHitResult.GetActor(), 10.f, this->GetOwner()->GetInstigatorController(), this->GetOwner(), UDamageType::StaticClass());
+
+			return ServerHitResult;
+		}	
 	}
 
 	return FHitResult();
@@ -101,15 +171,20 @@ FHitResult ALRWeapon::Fire(FHitResult HitResult)
 		{
 			FVector StartLocation = WeaponMeshComponent->GetSocketLocation("MuzzleFlash");
 			FVector EndLocation = StartLocation + (UKismetMathLibrary::FindLookAtRotation(StartLocation, HitResult.TraceEnd).Vector() * 3500);
+			
+			FHitResult ServerHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false);
 
 			CurrentMagazine->Fire();
 
-			FHitResult ServerHitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, false);
+			if(DamageAttributeEffect && UKismetSystemLibrary::DoesImplementInterface(ServerHitResult.GetActor(), UAbilitySystemInterface::StaticClass()))
+			{
+				AbilitySystemComponent->ApplyGameplayEffectToTarget(DamageAttributeEffect.GetDefaultObject(),
+					Cast<IAbilitySystemInterface>(ServerHitResult.GetActor())->GetAbilitySystemComponent());
+			}
 
-			// if(ALRCharacter* Character = Cast<ALRCharacter>(ServerHitResult.GetActor()))
-			// {
-			// 	Character->TakeDamage(10.0f, FDamageEvent(), nullptr, this->GetOwner());
-			// }
+			//UGameplayStatics::ApplyDamage(ServerHitResult.GetActor(), 10.f, this->GetOwner()->GetInstigatorController(), this->GetOwner(), UDamageType::StaticClass());
+
+			return ServerHitResult;
 		}
 	}
 

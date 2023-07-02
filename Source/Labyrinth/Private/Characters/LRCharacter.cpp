@@ -386,6 +386,8 @@ float ALRCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	{
 		if(const ALRCharacter* DamageInstigator = Cast<ALRCharacter>(DamageCauser))
 		{
+			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Hey"));
+
 			if(GetArmor() <= 0.f)
 				DamageInstigator->GetAbilitySystemComponent()->ApplyGameplayEffectToTarget(DamageInstigator->HealthDamageEffect.GetDefaultObject(), this->GetAbilitySystemComponent(), 1.0f, FGameplayEffectContextHandle());
 			else
