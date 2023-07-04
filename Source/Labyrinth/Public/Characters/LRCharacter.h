@@ -86,12 +86,6 @@ public:
 	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
 	 	TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;
 
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
-	 	TSubclassOf<class UGameplayEffect> HealthDamageEffect;
-
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
-	 	TSubclassOf<class UGameplayEffect> ArmorDamageEffect;
-	
 	 UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Character|Abilities")
 	 	TArray<TSubclassOf<class ULRCharacterGameplayAbility>> DefaultAbilities;
 	

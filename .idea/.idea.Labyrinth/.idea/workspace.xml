@@ -8,40 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="877ae1fb-4f6e-49ba-a557-b1c16d7bb5bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GA_Fire.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GA_Interact.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_ArmorDamage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_Defaults.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_HealthDamage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDefaults.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Private/Abilities/LRWeaponASC.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Private/Abilities/LRWeaponAttributeSet.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Private/Abilities/LRWeaponGameplayAbility.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Public/Abilities/LRWeaponASC.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Public/Abilities/LRWeaponAttributeSet.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Weapons/Public/Abilities/LRWeaponGameplayAbility.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_LRGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_LRGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/CharacterAbilities/GA_Fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/CharacterAbilities/GA_Interact.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/CharacterAbilities/GE_ArmorDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/CharacterAbilities/GE_Defaults.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/CharacterAbilities/GE_HealthDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/BP_LR_UI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/BP_LR_UI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_ArmorDamage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_HealthDamage.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Swat_Blue/Swat_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Swat_Blue/Swat_AnimBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labyrinth.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Labyrinth.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Public/LRWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRWeapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Weapons.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Weapons.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Weapons.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Weapons.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +136,7 @@
       <workItem from="1688209159840" duration="11754000" />
       <workItem from="1688223950265" duration="1070000" />
       <workItem from="1688305703891" duration="8853000" />
+      <workItem from="1688457796186" duration="5627000" />
     </task>
     <servers />
   </component>

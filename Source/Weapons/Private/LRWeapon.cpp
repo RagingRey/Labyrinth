@@ -75,6 +75,8 @@ void ALRWeapon::BeginPlay()
 	SetReplicates(true);
 
 	SetupWeapon();
+
+	InitializeAttributes();
 }
 
 bool ALRWeapon::Server_SetupWeapon_Validate()
