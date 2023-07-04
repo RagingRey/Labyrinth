@@ -5,11 +5,10 @@
 #include "CoreMinimal.h"
 
 UENUM(BlueprintType)
-enum class ELabyrinthAbilityInputID: uint8
+enum class ELRWeaponAbilityInputID: uint8
 {
 	None,
 	Confirm,
 	Cancel,
 	Attack,
-	Interact
 };

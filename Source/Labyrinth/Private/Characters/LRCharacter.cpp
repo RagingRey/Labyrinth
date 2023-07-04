@@ -382,17 +382,6 @@ void ALRCharacter::FireWeapon_Implementation()
 
 float ALRCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	if(AbilitySystemComponent && HealthDamageEffect && ArmorDamageEffect)
-	{
-		if(const ALRCharacter* DamageInstigator = Cast<ALRCharacter>(DamageCauser))
-		{
-			if(GetArmor() <= 0.f)
-				DamageInstigator->GetAbilitySystemComponent()->ApplyGameplayEffectToTarget(DamageInstigator->HealthDamageEffect.GetDefaultObject(), this->GetAbilitySystemComponent(), 1.0f, FGameplayEffectContextHandle());
-			else
-				DamageInstigator->GetAbilitySystemComponent()->ApplyGameplayEffectToTarget(DamageInstigator->ArmorDamageEffect.GetDefaultObject(), this->GetAbilitySystemComponent(), 1.0f, FGameplayEffectContextHandle());
-		}
-	}
-	
 	if (GetHealth() <= 0.0f)
 		Die();
 

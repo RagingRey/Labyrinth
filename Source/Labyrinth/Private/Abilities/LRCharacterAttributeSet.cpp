@@ -3,6 +3,7 @@
 
 #include "Abilities/LRCharacterAttributeSet.h"
 
+#include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
 ULRCharacterAttributeSet::ULRCharacterAttributeSet()
@@ -19,6 +20,29 @@ void ULRCharacterAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProper
 	DOREPLIFETIME_CONDITION_NOTIFY(ULRCharacterAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always)
 	DOREPLIFETIME_CONDITION_NOTIFY(ULRCharacterAttributeSet, Stamina, COND_None, REPNOTIFY_Always)
 	DOREPLIFETIME_CONDITION_NOTIFY(ULRCharacterAttributeSet, AttackPower, COND_None, REPNOTIFY_Always)
+}
+
+void ULRCharacterAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
+{
+	Super::PostGameplayEffectExecute(Data);
+
+	if(Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		float DeltaValue = 0.f;
+		if(Data.EvaluatedData.ModifierOp == EGameplayModOp::Additive)
+			DeltaValue = Data.EvaluatedData.Magnitude;
+
+		if(DeltaValue != 0.f)
+		{
+			if(GetArmor() > 0.f)
+			{
+				const float OldArmor = GetArmor();
+				const float OldHealth = GetHealth();
+				SetArmor(FMath::Clamp((OldArmor + DeltaValue), 0.f, GetMaxHealth()));
+				SetHealth(FMath::Clamp((OldHealth - DeltaValue), 0.f, GetMaxHealth()));	
+			}
+		}
+	}
 }
 
 void ULRCharacterAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
