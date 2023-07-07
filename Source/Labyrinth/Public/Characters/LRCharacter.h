@@ -6,6 +6,7 @@
 #include "InputActionValue.h"
 #include "Camera/CameraComponent.h"
 #include "AbilitySystemInterface.h"
+#include "LRGrenade.h"
 #include "Abilities/LRCharacterAttributeSet.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -51,6 +52,9 @@ class LABYRINTH_API ALRCharacter : public ACharacter, public IAbilitySystemInter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputAction* FireAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+		class UInputAction* GrenadeAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputAction* AimAction;
@@ -111,8 +115,15 @@ protected:
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = Animations)
 		UAnimationAsset* DeathAnimation;
 
+	
+	//Weapons
 	UPROPERTY(Replicated)
 		TObjectPtr<ALRWeapon> Weapon;
+
+	int Grenades;
+	UPROPERTY(EditDefaultsOnly, Category = "Character|Weapon")
+		TSubclassOf<ALRGrenade> Grenade_Class;
+
 
 	//Player's Component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerComponent)
@@ -145,6 +156,11 @@ protected:
 	void Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
 	UFUNCTION(BlueprintCallable, Server, Reliable)
 		void FireWeapon();
+
+	//Attack Functionality
+	void ThrowGrenade(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+		void SpawnGrenade();
 
 	//Reload Functionality
 	void Reload();
@@ -187,14 +203,15 @@ protected:
 	UFUNCTION(BlueprintPure)
 		float GetArmor() const;
 
+	void AddWeapon(ALRWeapon* NewWeapon);
+	void AddGrenade(const ALRGrenade* NewGrenade);
+	
 public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
-
-	void AddWeapon(ALRWeapon* NewWeapon);
-
+	
 	FORCEINLINE ALRWeapon* GetWeapon() const { return Weapon; }
 };

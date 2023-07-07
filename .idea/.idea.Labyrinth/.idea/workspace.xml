@@ -8,17 +8,238 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="877ae1fb-4f6e-49ba-a557-b1c16d7bb5bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GA_Grenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_GrenadeDamage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_GrenadeDefaults.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_Mag_Loaded_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRGrenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Maps/Weapons_Showcase.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/AR4/M_AR4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/AR4/M_AR4_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_Scope_25x56.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_Scope_25x56_Lens.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_Scope_25x56_Lens_NoAlpha.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_Suppressor5.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_Tc4_Sight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_V_Grip.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Accessories/M_V_Grip_Green.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_40mm_Grenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_45ap.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_762x39_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_9mm.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_9x18.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ammunition/M_Ammo_12gauge.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/G67_Grenade/M_G67.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA74U/M_KA74U.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA74U/M_KA74U_Gold.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA74U/M_KA74U_LeafSpray.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA_Val/M_KA_Val.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA_Val/M_KA_Val_Black.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA_Val/M_KA_Val_Black_Camo.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/KA_Val/M_KA_Val_Black_Striped.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ka47/M_KA47.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ka47/M_KA47_Gold.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Ka47/M_KA47_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/M9_Knife/M_M9_Knife.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Master_Material/M_RDS_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Master_Material/M_Scope_Lens_MASTER.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/Master_Material/M_Weapon_Master_USE.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/RDS/M_RDS_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/RDS/M_RDS_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/RDS/M_RDS_03.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/RDS/M_RDS_Glass.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/SMG11/M_SMG11.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/SMG11/M_SMG11_Camo.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/SMG11/M_SMG11_Color.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Materials/SMG11/M_SMG11_Rem.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SM_AR4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SM_AR4_Mag.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SM_AR4_Mag_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SM_AR4_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_Scope_25x56_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_Scope_25x56_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_Suppressor5.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_T4_Sight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_Vertgrip.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_12Gauge.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_12Gauge_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_40mm_G.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_40mm_G_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_45ap.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_45ap_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_545x39.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_545x39_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_556x45.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_556x45_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_762x39.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_762x39_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_762x51.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_762x51_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_9mm.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_9mm_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_9x18.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ammunition/SM_Shell_9x18_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SK_G67_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SM_G67.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SM_G67_Thrown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SM_G67_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_Y_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SK_KA74U_Y_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_Mag_Empty_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_Mag_Empty_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_Mag_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_Mag_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA74U/SM_KA74U_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_Y_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SK_KA_Val_Y_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_MAG_Loaded_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_Mag_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_Mag_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/KA_Val/SM_KA_Val_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SM_KA47.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SM_KA47_Mag.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SM_KA47_Mag_Empty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SM_KA47_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SK_M9_Knife_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SM_M9_Knife.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/M9_Knife/SM_M9_Knife_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_Y_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Nostock_Y_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_X_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_X_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Y_Physics.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SK_SMG11_Y_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Mag_Empty_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Mag_Empty_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Mag_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Nostock_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Nostock_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Meshes/SMG11/SM_SMG11_Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/AR4/T_AR4_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/AR4/T_AR4_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/AR4/T_AR4_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Scope_25x56_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Scope_25x56_Lens_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Scope_25x56_Lens_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Scope_25x56_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Scope_25x56_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Suppressor5_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Suppressor5_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Suppressor5_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Tc4_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Tc4_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_Tc4_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_V_Grip_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_V_Grip_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Accessories/T_V_Grip_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_12Gauge_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_12Gauge_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_12Gauge_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_40mm_Grenade_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_40mm_Grenade_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_40mm_Grenade_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_45ap_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_45ap_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_45ap_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_762x39_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_762x39_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_762x39_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9mm_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9mm_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9mm_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9x18_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9x18_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Ammunition/T_9x18_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/G67_Grenade/T_G67_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/G67_Grenade/T_G67_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/G67_Grenade/T_G67_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA47/T_KA47_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA47/T_KA47_Gold_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA47/T_KA47_Gold_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA47/T_KA47_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA47/T_KA47_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA74U/T_KA74U_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA74U/T_KA74U_Gold_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA74U/T_KA74U_Gold_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA74U/T_KA74U_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA74U/T_KA74U_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA_Val/T_KA_Val_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA_Val/T_KA_Val_Black_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA_Val/T_KA_Val_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/KA_Val/T_KA_Val_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/M9_Knife/T_M9_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/M9_Knife/T_M9_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/M9_Knife/T_M9_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_80s_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Chochip_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Cracks_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Desert_Marpat_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Hexagon_Glow_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Hexagon_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Ink_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_LeafSpray_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Net01_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Stripes__Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Urban_Marpat_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_W90K_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_W90_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/Patterns/T_Wood_Marpat_Pattern.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/RDS/T_RDS_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/RDS/T_RDS_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/RDS/T_RDS_03.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_Rem_ALB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_Rem_M_MSK.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Weapons/FPS_Weapon_Bundle/Weapons/Textures/SMG11/T_SMG11_Rem_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_ArmorDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_HealthDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Weapons.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Weapons.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labyrinth.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Labyrinth.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
     </list>
@@ -47,7 +268,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Weapon-Ability-System&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Grenade-System&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -137,6 +358,8 @@
       <workItem from="1688223950265" duration="1070000" />
       <workItem from="1688305703891" duration="8853000" />
       <workItem from="1688457796186" duration="5627000" />
+      <workItem from="1688647553611" duration="3312000" />
+      <workItem from="1688732226663" duration="11186000" />
     </task>
     <servers />
   </component>

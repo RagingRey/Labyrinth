@@ -11,6 +11,7 @@
 #include "Abilities/LRCharacterASC.h"
 #include "Abilities/LRCharacterGameplayAbility.h"
 #include "LRGameMode.h"
+#include "Weapons/Public/LRGrenade.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Labyrinth/Labyrinth.h"
 #include "Net/UnrealNetwork.h"
@@ -60,6 +61,8 @@ ALRCharacter::ALRCharacter()
 	//Defined Variables
 	bIsJumping = false;
 	bIsSprinting = false;
+
+	Grenades = 0;
 }
 
 UAbilitySystemComponent* ALRCharacter::GetAbilitySystemComponent() const
@@ -181,6 +184,10 @@ void ALRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		//Fire Weapon
 		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &ALRCharacter::Attack, true, ELabyrinthAbilityInputID::Attack);
 		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &ALRCharacter::Attack, false, ELabyrinthAbilityInputID::Attack);
+
+		//Throw Grenade
+		EnhancedInputComponent->BindAction(GrenadeAction, ETriggerEvent::Triggered, this, &ALRCharacter::ThrowGrenade, true, ELabyrinthAbilityInputID::Grenade);
+		EnhancedInputComponent->BindAction(GrenadeAction, ETriggerEvent::Triggered, this, &ALRCharacter::ThrowGrenade, false, ELabyrinthAbilityInputID::Grenade);
 
 		//Aim Weapon
 		EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Triggered, this, &ALRCharacter::Aim);
@@ -338,10 +345,24 @@ void ALRCharacter::Server_Interact_Implementation()
 			if(Weapon)
 				Weapon->AddMagazine(InteractedMagazine);				
 		}
+		else if(ALRGrenade* InteractedGrenade = Cast<ALRGrenade>(HitResult.GetActor()))
+		{
+			AddGrenade(InteractedGrenade);
+		}
 	}
 }
 
 void ALRCharacter::Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
+{
+	if (!AbilitySystemComponent) return;
+
+	if(bPressed)
+		AbilitySystemComponent->AbilityLocalInputPressed(static_cast<int32>(AbilityInputID));
+	else
+		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
+}
+
+void ALRCharacter::ThrowGrenade(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
 {
 	if (!AbilitySystemComponent) return;
 
@@ -377,6 +398,26 @@ void ALRCharacter::FireWeapon_Implementation()
 				Weapon->Fire();
 			}
 		}
+	}
+}
+
+void ALRCharacter::SpawnGrenade_Implementation()
+{
+	if(HasAuthority())
+	{
+		if(Grenades > 0 && Grenade_Class)
+		{
+			const FRotator GrenadeSpawnRotation = this->GetControlRotation();
+			const FVector GrenadeSpawnLocation = this->GetActorLocation() + GrenadeSpawnRotation.RotateVector(FVector(300, 0, 0));
+			FActorSpawnParameters SpawnParameters;
+			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+			SpawnParameters.Owner = this;
+
+			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Semi-Worked"));
+
+			ALRGrenade* Grenade = GetWorld()->SpawnActor<ALRGrenade>(Grenade_Class, GrenadeSpawnLocation, this->GetActorRotation(), SpawnParameters);
+			Grenades--;
+		}	
 	}
 }
 
@@ -485,6 +526,15 @@ void ALRCharacter::AddWeapon(ALRWeapon* NewWeapon)
 		Weapon = NewWeapon;
 		Weapon->AttachToComponent(this->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("GunPoint"));
 		Weapon->SetOwner(this);
+	}
+}
+
+void ALRCharacter::AddGrenade(const ALRGrenade* NewGrenade)
+{
+	if(NewGrenade)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Semi-Worked"));
+		Grenades++;
 	}
 }
 
