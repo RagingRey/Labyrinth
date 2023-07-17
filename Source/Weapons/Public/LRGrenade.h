@@ -74,7 +74,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	void Launch();
-	void Explode();
+
+	UFUNCTION(NetMulticast, Reliable)
+		void Explode();
 
 	void OnOverlap();
 };

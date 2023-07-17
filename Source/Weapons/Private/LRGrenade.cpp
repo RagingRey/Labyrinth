@@ -98,7 +98,7 @@ void ALRGrenade::Launch()
 	}
 }
 
-void ALRGrenade::Explode()
+void ALRGrenade::Explode_Implementation()
 {
 	if(GrenadeType == EGrenadeType::Frag)
 	{
@@ -128,16 +128,21 @@ void ALRGrenade::Explode()
 
 void ALRGrenade::OnOverlap()
 {
-	TArray<TObjectPtr<AActor>> OverlappingActors;
-	SphereCollision->GetOverlappingActors(OverlappingActors);
-
-	for(int i {0}; i < OverlappingActors.Num(); i++)
+	if(HasAuthority())
 	{
-		if(OverlappingActors[i] != this && UKismetSystemLibrary::DoesImplementInterface(OverlappingActors[i], UAbilitySystemInterface::StaticClass()))
+		TArray<TObjectPtr<AActor>> OverlappingActors;
+		SphereCollision->GetOverlappingActors(OverlappingActors);
+	
+		for(int i {0}; i < OverlappingActors.Num(); i++)
 		{
-			AbilitySystemComponent->ApplyGameplayEffectToTarget(DamageAttributeEffect.GetDefaultObject(),
-					Cast<IAbilitySystemInterface>(OverlappingActors[i])->GetAbilitySystemComponent());
-		}
+			if(OverlappingActors[i] != this && UKismetSystemLibrary::DoesImplementInterface(OverlappingActors[i], UAbilitySystemInterface::StaticClass()) && DamageAttributeEffect)
+			{
+				AbilitySystemComponent->ApplyGameplayEffectToTarget(DamageAttributeEffect.GetDefaultObject(),
+						Cast<IAbilitySystemInterface>(OverlappingActors[i])->GetAbilitySystemComponent());
+
+				GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, FString("Overlapped"));
+			}
+		}	
 	}
 }
 

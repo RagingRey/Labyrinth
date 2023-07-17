@@ -165,7 +165,7 @@ protected:
 	//Reload Functionality
 	void Reload();
 
-	UFUNCTION(Server, Reliable, WithValidation)
+	UFUNCTION(Server, Unreliable, WithValidation)
 		void Server_Reload();
 	bool Server_Reload_Validate();
 	void Server_Reload_Implementation();
@@ -177,7 +177,7 @@ protected:
 	UFUNCTION()
 		void OnRep_Aim();
 
-	UFUNCTION(Server, Reliable, WithValidation)
+	UFUNCTION(Server, Unreliable, WithValidation)
 		void Server_Aim(bool Aim);
 	bool Server_Aim_Validate(bool Aim);
 	void Server_Aim_Implementation(bool Aim);
@@ -185,7 +185,7 @@ protected:
 	UFUNCTION(BlueprintCallable)
 		float GetPlayerPitch();
 
-	UFUNCTION(Server, Reliable, WithValidation)
+	UFUNCTION(Server, Unreliable, WithValidation)
 		void Server_UpdatePitch(float Pitch);
 	bool Server_UpdatePitch_Validate(float Pitch);
 	void Server_UpdatePitch_Implementation(float Pitch);

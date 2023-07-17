@@ -410,10 +410,8 @@ void ALRCharacter::SpawnGrenade_Implementation()
 			const FRotator GrenadeSpawnRotation = this->GetControlRotation();
 			const FVector GrenadeSpawnLocation = this->GetActorLocation() + GrenadeSpawnRotation.RotateVector(FVector(300, 0, 0));
 			FActorSpawnParameters SpawnParameters;
-			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 			SpawnParameters.Owner = this;
-
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Semi-Worked"));
 
 			ALRGrenade* Grenade = GetWorld()->SpawnActor<ALRGrenade>(Grenade_Class, GrenadeSpawnLocation, this->GetActorRotation(), SpawnParameters);
 			Grenades--;
