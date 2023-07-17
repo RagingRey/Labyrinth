@@ -7,20 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="877ae1fb-4f6e-49ba-a557-b1c16d7bb5bc" name="Changes" comment="">
+    <list default="true" id="c8660c3c-147f-49e3-8607-b2857b56ad28" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_ArmorDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GE_HealthDamage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Weapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/WeaponAbilities/GE_RifleDamage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/DB/FTZ8ZBMJCT42X01L6YEAMY.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/W3/LVDJRZOG6G4MJXOS8YK3EU.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Abilities/LRCharacterAttributeSet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/HoloLens/Config/HoloLensEngine.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Abilities/LRCharacterAttributeSet.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,22 +31,20 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2RnPm5kDysuJT2sRCrWty9Xz3j9" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
   </component>
+  <component name="ProjectId" id="2SIk6znYR810J5r7lJiWvbWuYaA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Weapon-Ability-System&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Grenade-System&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -124,19 +120,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="877ae1fb-4f6e-49ba-a557-b1c16d7bb5bc" name="Changes" comment="" />
-      <created>1687883029321</created>
+      <changelist id="c8660c3c-147f-49e3-8607-b2857b56ad28" name="Changes" comment="" />
+      <created>1688841313951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1687883029321</updated>
-      <workItem from="1687883034767" duration="393000" />
-      <workItem from="1687884034832" duration="935000" />
-      <workItem from="1687885010063" duration="3642000" />
-      <workItem from="1688158458306" duration="1025000" />
-      <workItem from="1688209159840" duration="11754000" />
-      <workItem from="1688223950265" duration="1070000" />
-      <workItem from="1688305703891" duration="8853000" />
-      <workItem from="1688457796186" duration="5627000" />
+      <updated>1688841313951</updated>
+      <workItem from="1688841320155" duration="180000" />
+      <workItem from="1688841542618" duration="527000" />
+      <workItem from="1688996567627" duration="2287000" />
+      <workItem from="1689528979418" duration="1744000" />
+      <workItem from="1689589845585" duration="1900000" />
+      <workItem from="1689594994548" duration="7618000" />
     </task>
     <servers />
   </component>
@@ -144,7 +138,6 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
