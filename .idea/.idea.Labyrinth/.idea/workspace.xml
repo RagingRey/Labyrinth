@@ -8,17 +8,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8660c3c-147f-49e3-8607-b2857b56ad28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_Grenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/GrenadeIcon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_LR.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/IMC_Widgets.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WeaponActions/IA_LRAim.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WeaponActions/IA_LRGrenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WeaponActions/IA_LRInteract.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WeaponActions/IA_LRPRimaryAttack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WeaponActions/IA_LRReload.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Input/WidgetActions/IA_Inventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Components/LRInventory.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Components/LRInventory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Misc/LRPickups.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/HoloLens/Config/HoloLensEngine.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_LR_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_LR_HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/BP_LR_UI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/BP_LR_UI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_LRAim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRAim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_LRGrenade.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRGrenade.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_LRInteract.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRInteract.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_LRPRimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRPRimaryAttack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_LRReload.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_LRReload.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Labyrinth.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +61,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Grenade-System&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Inventory&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -130,12 +147,27 @@
       <workItem from="1688996567627" duration="2287000" />
       <workItem from="1689528979418" duration="1744000" />
       <workItem from="1689589845585" duration="1900000" />
-      <workItem from="1689594994548" duration="7618000" />
+      <workItem from="1689594994548" duration="8204000" />
+      <workItem from="1689607601036" duration="5296000" />
+      <workItem from="1689864614727" duration="1220000" />
+      <workItem from="1689949861444" duration="529000" />
+      <workItem from="1690124554840" duration="6264000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

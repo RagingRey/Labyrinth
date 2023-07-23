@@ -11,9 +11,11 @@
 #include "Abilities/LRCharacterASC.h"
 #include "Abilities/LRCharacterGameplayAbility.h"
 #include "LRGameMode.h"
+#include "Blueprint/UserWidget.h"
 #include "Weapons/Public/LRGrenade.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Labyrinth/Labyrinth.h"
+#include "Misc/LRPickups.h"
 #include "Net/UnrealNetwork.h"
 #include "Weapons/Public/LRMagazine.h"
 
@@ -49,6 +51,7 @@ ALRCharacter::ALRCharacter()
 
 	//Components
 	LineTraceComponent = CreateDefaultSubobject<ULRLineTrace>(TEXT("Line Trace Component"));
+	Inventory = CreateDefaultSubobject<ULRInventory>(TEXT("Inventory Component"));
 
 	AbilitySystemComponent = CreateDefaultSubobject<ULRCharacterASC>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
@@ -120,6 +123,27 @@ void ALRCharacter::OnRep_PlayerState()
 	InitializeAttributes();
 }
 
+void ALRCharacter::ToggleInventory()
+{
+	if(InventoryUI_Class)
+	{
+		APlayerController* PlayerController = Cast<APlayerController>(this->GetController());
+		if(InventoryUI && InventoryUI->IsInViewport())
+		{
+			InventoryUI->RemoveFromParent();
+			PlayerController->SetShowMouseCursor(false);
+			PlayerController->SetInputMode(FInputModeGameOnly());
+		}
+		else
+		{
+			InventoryUI = CreateWidget(GetWorld(), InventoryUI_Class);
+			InventoryUI->AddToViewport();
+			PlayerController->SetShowMouseCursor(true);
+			PlayerController->SetInputMode(FInputModeGameAndUI());
+		} 
+	}
+}
+
 // Called when the game starts or when spawned
 void ALRCharacter::BeginPlay()
 {
@@ -133,6 +157,7 @@ void ALRCharacter::BeginPlay()
 		{
 			Subsystem->AddMappingContext(LabyrinthMappingContext, 0);
 			Subsystem->AddMappingContext(WeaponMappingContext, 1);
+			Subsystem->AddMappingContext(WidgetMappingContext, 1);
 		}
 	}
 
@@ -199,6 +224,9 @@ void ALRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 		//Reload
 		EnhancedInputComponent->BindAction(ReloadAction, ETriggerEvent::Triggered, this, &ALRCharacter::Reload);
+
+		//Inventory
+		EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, this, &ALRCharacter::ToggleInventory);
 	}
 }
 
@@ -336,19 +364,24 @@ void ALRCharacter::Server_Interact_Implementation()
 
 		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
 
-		if(ALRWeapon* InteractedWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
+		if(ALRPickups* InteractedItem = Cast<ALRPickups>(HitResult.GetActor()))
 		{
-			AddWeapon(InteractedWeapon);
+			Inventory->AddItem(InteractedItem);
 		}
-		else if(ALRMagazine* InteractedMagazine = Cast<ALRMagazine>(HitResult.GetActor()))
+		else if(ALRWeapon* InteractedWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
 		{
-			if(Weapon)
-				Weapon->AddMagazine(InteractedMagazine);				
+		 	AddWeapon(InteractedWeapon);
 		}
-		else if(ALRGrenade* InteractedGrenade = Cast<ALRGrenade>(HitResult.GetActor()))
-		{
-			AddGrenade(InteractedGrenade);
-		}
+		
+		// else if(ALRMagazine* InteractedMagazine = Cast<ALRMagazine>(HitResult.GetActor()))
+		// {
+		// 	if(Weapon)
+		// 		Weapon->AddMagazine(InteractedMagazine);				
+		// }
+		// else if(ALRGrenade* InteractedGrenade = Cast<ALRGrenade>(HitResult.GetActor()))
+		// {
+		// 	AddGrenade(InteractedGrenade);
+		// }
 	}
 }
 

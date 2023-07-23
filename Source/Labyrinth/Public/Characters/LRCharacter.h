@@ -8,6 +8,7 @@
 #include "AbilitySystemInterface.h"
 #include "LRGrenade.h"
 #include "Abilities/LRCharacterAttributeSet.h"
+#include "Components/LRInventory.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Labyrinth/Labyrinth.h"
@@ -47,6 +48,7 @@ class LABYRINTH_API ALRCharacter : public ACharacter, public IAbilitySystemInter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputAction* LookAction;
 
+	//Weapon Input
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputMappingContext* WeaponMappingContext;
 
@@ -64,6 +66,13 @@ class LABYRINTH_API ALRCharacter : public ACharacter, public IAbilitySystemInter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 		class UInputAction* ReloadAction;
+
+	//Widget Input
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+		class UInputMappingContext* WidgetMappingContext;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+		class UInputAction* InventoryAction;
 
 	/**Ability System Component**/
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
@@ -94,28 +103,6 @@ public:
 	 	TArray<TSubclassOf<class ULRCharacterGameplayAbility>> DefaultAbilities;
 	
 protected:
-	UPROPERTY(BlueprintReadOnly)
-		bool bIsJumping;
-
-	UPROPERTY(BlueprintReadOnly)
-		bool bIsSprinting;
-
-	UPROPERTY(BlueprintReadOnly)
-		bool bIsCrouching;
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Aim)
-		bool bIsAiming;
-
-	UPROPERTY(Replicated)
-		float PlayerPitch;
-
-	FVector CameraDefaultLocation;
-	FVector CameraAimLocation;
-
-	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = Animations)
-		UAnimationAsset* DeathAnimation;
-
-	
 	//Weapons
 	UPROPERTY(Replicated)
 		TObjectPtr<ALRWeapon> Weapon;
@@ -129,20 +116,34 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerComponent)
 		TObjectPtr<ULRLineTrace> LineTraceComponent;
 
-protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerComponent)
+		TObjectPtr<ULRInventory> Inventory;
+
+	//Inventory
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
+		TSubclassOf<UUserWidget> InventoryUI_Class;
+	TObjectPtr<UUserWidget> InventoryUI;
+	void ToggleInventory();
+	
 	virtual void BeginPlay() override;
 
 	//Player Movements
 	void Move(const FInputActionValue& Value);
 
+	UPROPERTY(BlueprintReadOnly)
+		bool bIsSprinting;
 	void Sprint();
 	void StopSprinting();
 
+	UPROPERTY(BlueprintReadOnly)
+		bool bIsCrouching;
 	void Crouch();
 	void StopCrouching();
 
 	void Look(const FInputActionValue& Value);
 
+	UPROPERTY(BlueprintReadOnly)
+		bool bIsJumping;
 	virtual void Jump() override;
 
 	virtual void StopJumping() override;
@@ -171,6 +172,11 @@ protected:
 	void Server_Reload_Implementation();
 
 	//Aim Functionality
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Aim)
+		bool bIsAiming;
+
+	FVector CameraDefaultLocation;
+	FVector CameraAimLocation;
 	void Aim();
 	void StopAiming();
 
@@ -182,6 +188,9 @@ protected:
 	bool Server_Aim_Validate(bool Aim);
 	void Server_Aim_Implementation(bool Aim);
 
+	UPROPERTY(Replicated)
+		float PlayerPitch;
+	
 	UFUNCTION(BlueprintCallable)
 		float GetPlayerPitch();
 
@@ -190,6 +199,9 @@ protected:
 	bool Server_UpdatePitch_Validate(float Pitch);
 	void Server_UpdatePitch_Implementation(float Pitch);
 
+
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = Animations)
+		UAnimationAsset* DeathAnimation;
 	void Die();
 
 	UFUNCTION(NetMultiCast, Reliable, WithValidation)
