@@ -107,7 +107,6 @@ protected:
 	UPROPERTY(Replicated)
 		TObjectPtr<ALRWeapon> Weapon;
 
-	int Grenades;
 	UPROPERTY(EditDefaultsOnly, Category = "Character|Weapon")
 		TSubclassOf<ALRGrenade> Grenade_Class;
 
@@ -149,9 +148,11 @@ protected:
 	virtual void StopJumping() override;
 
 	//Interaction
-	void Interact(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
+	void InteractButton(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
+	UFUNCTION(BlueprintCallable)
+		void Interact();
 	UFUNCTION(BlueprintCallable, Server, Reliable)
-		void Server_Interact();
+		void Server_Interact(FVector EndLocation);
 
 	//Attack Functionality
 	void Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID);
@@ -216,7 +217,6 @@ protected:
 		float GetArmor() const;
 
 	void AddWeapon(ALRWeapon* NewWeapon);
-	void AddGrenade(const ALRGrenade* NewGrenade);
 	
 public:
 	virtual void Tick(float DeltaTime) override;
@@ -226,4 +226,7 @@ public:
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 	
 	FORCEINLINE ALRWeapon* GetWeapon() const { return Weapon; }
+
+	UFUNCTION(BlueprintCallable)
+		ULRInventory* GetInventory() const { return Inventory; }
 };

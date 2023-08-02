@@ -64,8 +64,6 @@ ALRCharacter::ALRCharacter()
 	//Defined Variables
 	bIsJumping = false;
 	bIsSprinting = false;
-
-	Grenades = 0;
 }
 
 UAbilitySystemComponent* ALRCharacter::GetAbilitySystemComponent() const
@@ -219,8 +217,8 @@ void ALRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Completed, this, &ALRCharacter::StopAiming);
 
 		//Interact
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::Interact, true, ELabyrinthAbilityInputID::Interact);
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::Interact, false, ELabyrinthAbilityInputID::Interact);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::InteractButton, true, ELabyrinthAbilityInputID::Interact);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ALRCharacter::InteractButton, false, ELabyrinthAbilityInputID::Interact);
 
 		//Reload
 		EnhancedInputComponent->BindAction(ReloadAction, ETriggerEvent::Triggered, this, &ALRCharacter::Reload);
@@ -332,7 +330,7 @@ void ALRCharacter::StopJumping()
 	bIsJumping = false;
 }
 
-void ALRCharacter::Interact(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
+void ALRCharacter::InteractButton(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
 {
 	if (!AbilitySystemComponent) return;
 
@@ -342,7 +340,29 @@ void ALRCharacter::Interact(bool bPressed, const ELabyrinthAbilityInputID Abilit
 		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
 }
 
-void ALRCharacter::Server_Interact_Implementation()
+void ALRCharacter::Interact()
+{
+	FVector CamStartLocation = FollowCamera->GetComponentLocation();
+	FVector CamEndLocation = CamStartLocation + (FollowCamera->GetForwardVector() * 2000.0f);
+	FVector ImpactPoint = LineTraceComponent->LineTraceSingle(CamStartLocation, CamEndLocation, false).ImpactPoint;
+
+	FVector StartLocation = this->GetMesh()->GetBoneLocation("head");
+	FVector EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, ImpactPoint).Vector() * 2000.0f;
+
+	FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
+
+	if(ALRPickups* InteractedItem = Cast<ALRPickups>(HitResult.GetActor()))
+	{
+		Server_Interact(EndLocation);
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Worked"));
+	}
+	else if(ALRWeapon* InteractedWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
+	{
+		Server_Interact(EndLocation);
+	}
+}
+
+void ALRCharacter::Server_Interact_Implementation(FVector EndLocation)
 {
 	if (HasAuthority())
 	{
@@ -351,16 +371,16 @@ void ALRCharacter::Server_Interact_Implementation()
 
 		FVector StartLocation = this->GetMesh()->GetBoneLocation("head");
 		FVector ImpactPoint = LineTraceComponent->LineTraceSingle(CamStartLocation, CamEndLocation, false).ImpactPoint;
-		FVector EndLocation;
 
-		if(!ImpactPoint.IsZero())
-		{
-			EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, ImpactPoint).Vector() * 2000.0f;
-		}
-		else
-		{
-			EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, CamEndLocation).Vector() * 2000.0f;
-		}
+		//FVector EndLocation;
+		// if(!ImpactPoint.IsZero())
+		// {
+		// 	EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, ImpactPoint).Vector() * 2000.0f;
+		// }
+		// else
+		// {
+		// 	EndLocation = StartLocation + UKismetMathLibrary::FindLookAtRotation(StartLocation, CamEndLocation).Vector() * 2000.0f;
+		// }
 
 		FHitResult HitResult = LineTraceComponent->LineTraceSingle(StartLocation, EndLocation, true);
 
@@ -386,16 +406,6 @@ void ALRCharacter::Server_Interact_Implementation()
 }
 
 void ALRCharacter::Attack(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
-{
-	if (!AbilitySystemComponent) return;
-
-	if(bPressed)
-		AbilitySystemComponent->AbilityLocalInputPressed(static_cast<int32>(AbilityInputID));
-	else
-		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
-}
-
-void ALRCharacter::ThrowGrenade(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
 {
 	if (!AbilitySystemComponent) return;
 
@@ -434,21 +444,41 @@ void ALRCharacter::FireWeapon_Implementation()
 	}
 }
 
+void ALRCharacter::ThrowGrenade(bool bPressed, const ELabyrinthAbilityInputID AbilityInputID)
+{
+	if (!AbilitySystemComponent) return;
+
+	if(bPressed)
+		AbilitySystemComponent->AbilityLocalInputPressed(static_cast<int32>(AbilityInputID));
+	else
+		AbilitySystemComponent->AbilityLocalInputReleased(static_cast<int32>(AbilityInputID));
+}
+
 void ALRCharacter::SpawnGrenade_Implementation()
 {
 	if(HasAuthority())
 	{
-		if(Grenades > 0 && Grenade_Class)
+		if(GetInventory())
 		{
-			const FRotator GrenadeSpawnRotation = this->GetControlRotation();
-			const FVector GrenadeSpawnLocation = this->GetActorLocation() + GrenadeSpawnRotation.RotateVector(FVector(300, 0, 0));
-			FActorSpawnParameters SpawnParameters;
-			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-			SpawnParameters.Owner = this;
+			for(ALRPickups* Item :GetInventory()->GetInventoryItems())
+			{
+				if(Item->GetPickupType() == EPickupType::Grenade)
+				{
+					if(Grenade_Class)
+					{
+						const FRotator GrenadeSpawnRotation = this->GetControlRotation();
+						const FVector GrenadeSpawnLocation = this->GetActorLocation() + GrenadeSpawnRotation.RotateVector(FVector(300, 0, 0));
+						FActorSpawnParameters SpawnParameters;
+						SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+						SpawnParameters.Owner = this;
 
-			ALRGrenade* Grenade = GetWorld()->SpawnActor<ALRGrenade>(Grenade_Class, GrenadeSpawnLocation, this->GetActorRotation(), SpawnParameters);
-			Grenades--;
-		}	
+						ALRGrenade* Grenade = GetWorld()->SpawnActor<ALRGrenade>(Grenade_Class, GrenadeSpawnLocation, this->GetActorRotation(), SpawnParameters);
+
+						GetInventory()->UseItem(Item);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -557,15 +587,6 @@ void ALRCharacter::AddWeapon(ALRWeapon* NewWeapon)
 		Weapon = NewWeapon;
 		Weapon->AttachToComponent(this->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("GunPoint"));
 		Weapon->SetOwner(this);
-	}
-}
-
-void ALRCharacter::AddGrenade(const ALRGrenade* NewGrenade)
-{
-	if(NewGrenade)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Semi-Worked"));
-		Grenades++;
 	}
 }
 

@@ -11,7 +11,7 @@ enum class EPickupType : uint8
 {
 	Default,
 	Grenade,
-	Ammo
+	FirstAid
 };
 
 UCLASS()
@@ -44,8 +44,13 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	FORCEINLINE UTexture2D* GetIcon() const { return Icon; }
+	UFUNCTION(BlueprintCallable)
+		UTexture2D* GetIcon() const { return Icon; }
+	
 	FORCEINLINE EPickupType GetPickupType() const { return PickupType; }
 
+	UFUNCTION(BlueprintCallable)
+	void UseItem();
+	
 	void Picked();
 };

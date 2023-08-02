@@ -17,16 +17,17 @@ public:
 	ULRInventory();
 
 	void AddItem(ALRPickups* Item);
+	void UseItem(ALRPickups* Item);
 	
 protected:
-	TArray<ALRPickups*> InventoryItems;
+	UPROPERTY(Replicated)
+		TArray<ALRPickups*> InventoryItems;
 	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:
-	FORCEINLINE TArray<ALRPickups*> GetInventoryItems() const { return InventoryItems; }
-
-	
+	UFUNCTION(BlueprintCallable)
+		FORCEINLINE TArray<ALRPickups*> GetInventoryItems() const { return InventoryItems; }
 };

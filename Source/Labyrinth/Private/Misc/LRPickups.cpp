@@ -23,6 +23,14 @@ void ALRPickups::BeginPlay()
 	SetReplicates(true);
 }
 
+void ALRPickups::UseItem()
+{
+	if(PickupType == EPickupType::FirstAid)
+	{
+		
+	}
+}
+
 void ALRPickups::Picked()
 {
 	bPicked = true;

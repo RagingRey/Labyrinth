@@ -3,6 +3,8 @@
 
 #include "Components/LRInventory.h"
 
+#include "Net/UnrealNetwork.h"
+
 // Sets default values for this component's properties
 ULRInventory::ULRInventory()
 {
@@ -15,6 +17,14 @@ void ULRInventory::BeginPlay()
 {
 	Super::BeginPlay();
 
+	SetIsReplicated(true);
+}
+
+void ULRInventory::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ULRInventory, InventoryItems);
 }
 
 void ULRInventory::AddItem(ALRPickups* Item)
@@ -23,5 +33,14 @@ void ULRInventory::AddItem(ALRPickups* Item)
 	{
 		InventoryItems.Add(Item);
 		Item->Picked();
+	}
+}
+
+void ULRInventory::UseItem(ALRPickups* Item)
+{
+	if(GetOwnerRole() == ROLE_Authority)
+	{
+		Item->UseItem();
+		InventoryItems.Remove(Item);
 	}
 }
