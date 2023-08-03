@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "LRPickups.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EPickupType : uint8
 {
 	Default,
@@ -30,8 +30,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Properties")
 		TObjectPtr<UTexture2D> Icon;
 	
-	UPROPERTY(EditAnywhere, Category = "Properties")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Properties")
 		EPickupType PickupType;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Abilities")
+		TSubclassOf<class UGameplayEffect> HealthAttributeEffect;
 	
 	UPROPERTY(ReplicatedUsing = OnRep_Picked)
 		bool bPicked;
@@ -48,8 +51,7 @@ public:
 		UTexture2D* GetIcon() const { return Icon; }
 	
 	FORCEINLINE EPickupType GetPickupType() const { return PickupType; }
-
-	UFUNCTION(BlueprintCallable)
+	
 	void UseItem();
 	
 	void Picked();

@@ -354,7 +354,6 @@ void ALRCharacter::Interact()
 	if(ALRPickups* InteractedItem = Cast<ALRPickups>(HitResult.GetActor()))
 	{
 		Server_Interact(EndLocation);
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString("Worked"));
 	}
 	else if(ALRWeapon* InteractedWeapon = Cast<ALRWeapon>(HitResult.GetActor()))
 	{

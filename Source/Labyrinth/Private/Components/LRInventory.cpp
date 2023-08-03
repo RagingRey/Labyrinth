@@ -3,6 +3,7 @@
 
 #include "Components/LRInventory.h"
 
+#include "Kismet/KismetSystemLibrary.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
@@ -32,13 +33,14 @@ void ULRInventory::AddItem(ALRPickups* Item)
 	if(GetOwnerRole() == ROLE_Authority)
 	{
 		InventoryItems.Add(Item);
+		Item->Owner = this->GetOwner();
 		Item->Picked();
 	}
 }
 
 void ULRInventory::UseItem(ALRPickups* Item)
 {
-	if(GetOwnerRole() == ROLE_Authority)
+	//if(GetOwnerRole() == ROLE_Authority)
 	{
 		Item->UseItem();
 		InventoryItems.Remove(Item);

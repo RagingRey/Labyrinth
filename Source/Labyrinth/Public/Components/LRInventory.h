@@ -17,7 +17,9 @@ public:
 	ULRInventory();
 
 	void AddItem(ALRPickups* Item);
-	void UseItem(ALRPickups* Item);
+
+	UFUNCTION(BlueprintCallable)
+		void UseItem(ALRPickups* Item);
 	
 protected:
 	UPROPERTY(Replicated)
