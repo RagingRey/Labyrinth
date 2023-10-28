@@ -52,7 +52,11 @@ void ALRPickups::UseItem_Implementation()
 
 void ALRPickups::Picked()
 {
-	bPicked = true;
+	if(HasAuthority())
+	{
+		bPicked = true;
+		OnRep_Picked();		
+	}
 }
 
 void ALRPickups::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

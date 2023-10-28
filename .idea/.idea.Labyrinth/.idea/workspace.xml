@@ -12,11 +12,8 @@
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Misc/LRPickups.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Misc/LRPickups.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,7 @@
       <workItem from="1698157941974" duration="8747000" />
       <workItem from="1698500645637" duration="509000" />
       <workItem from="1698501762311" duration="824000" />
-      <workItem from="1698509400041" duration="596000" />
+      <workItem from="1698509400041" duration="2167000" />
     </task>
     <servers />
   </component>
