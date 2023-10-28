@@ -34,7 +34,7 @@ protected:
 		EPickupType PickupType;
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Abilities")
-		TSubclassOf<class UGameplayEffect> HealthAttributeEffect;
+		TSubclassOf<class UGameplayEffect> ItemEffect;
 	
 	UPROPERTY(ReplicatedUsing = OnRep_Picked)
 		bool bPicked;
@@ -51,8 +51,9 @@ public:
 		UTexture2D* GetIcon() const { return Icon; }
 	
 	FORCEINLINE EPickupType GetPickupType() const { return PickupType; }
-	
-	void UseItem();
+
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+		void UseItem();
 	
 	void Picked();
 };

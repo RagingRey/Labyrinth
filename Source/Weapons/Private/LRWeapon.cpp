@@ -28,7 +28,7 @@ ALRWeapon::ALRWeapon()
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 	
 	AttributeSet = CreateDefaultSubobject<ULRWeaponAttributeSet>("Attributes");
-	
+
 	bAttributesInitialized = false;
 }
 

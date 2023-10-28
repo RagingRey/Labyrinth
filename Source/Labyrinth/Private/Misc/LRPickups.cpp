@@ -33,19 +33,18 @@ void ALRPickups::BeginPlay()
 	SetReplicates(true);
 }
 
-void ALRPickups::UseItem()
+void ALRPickups::UseItem_Implementation()
 {
-	if(PickupType == EPickupType::FirstAid)
+	if(HasAuthority())
 	{
-		if(HealthAttributeEffect && UKismetSystemLibrary::DoesImplementInterface(this->GetOwner(), UAbilitySystemInterface::StaticClass()))
+		if(PickupType == EPickupType::FirstAid)
 		{
-			if(UAbilitySystemComponent* Component = Cast<IAbilitySystemInterface>(this->GetOwner())->GetAbilitySystemComponent())
+			if(ItemEffect && UKismetSystemLibrary::DoesImplementInterface(this->GetOwner(), UAbilitySystemInterface::StaticClass()))
 			{
-				FGameplayEffectContextHandle EffectContext = Component->MakeEffectContext();
-				EffectContext.AddSourceObject(this->GetOwner());
-				
-				Component->ApplyGameplayEffectToSelf(HealthAttributeEffect.GetDefaultObject(), 1.f, EffectContext);
-				UKismetSystemLibrary::PrintString(this, FString("Worked"));
+				if(UAbilitySystemComponent* Component = Cast<IAbilitySystemInterface>(this->GetOwner())->GetAbilitySystemComponent())
+				{
+					Component->ApplyGameplayEffectToSelf(ItemEffect.GetDefaultObject(), 1.f, FGameplayEffectContextHandle());
+				}
 			}
 		}
 	}

@@ -8,21 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8660c3c-147f-49e3-8607-b2857b56ad28" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/Abilities/GE_FirstAid.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GA_Fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/CharacterAbilities/GA_Fire.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/BQ/Q237417DXW4FUX2RZEY14N.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Components/LRInventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Components/LRInventory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Components/LRInventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Components/LRInventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Misc/LRPickups.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Misc/LRPickups.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRWeapon.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +141,17 @@
       <workItem from="1690286164522" duration="2037000" />
       <workItem from="1690892711156" duration="6525000" />
       <workItem from="1691054193688" duration="10202000" />
-      <workItem from="1691070860840" duration="3148000" />
+      <workItem from="1691070860840" duration="3602000" />
+      <workItem from="1691158102246" duration="1541000" />
+      <workItem from="1692271769722" duration="4935000" />
+      <workItem from="1692569235855" duration="742000" />
+      <workItem from="1693166125895" duration="1296000" />
+      <workItem from="1693676234192" duration="135000" />
+      <workItem from="1693678158717" duration="1324000" />
+      <workItem from="1698157941974" duration="8747000" />
+      <workItem from="1698500645637" duration="509000" />
+      <workItem from="1698501762311" duration="824000" />
+      <workItem from="1698509400041" duration="596000" />
     </task>
     <servers />
   </component>
