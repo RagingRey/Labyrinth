@@ -8,17 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8660c3c-147f-49e3-8607-b2857b56ad28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Labyrinth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Grenade.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XO/1SBHVN8LRNCVPZTXDH5A6U.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/HoloLens/Config/HoloLensEngine.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Characters/LRCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Public/Characters/LRCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Private/LRGrenade.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Weapons/Public/LRGrenade.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_MedKit.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/UI_Pickup.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/IX/RE6EMTXHRNUTEQIYNF2F8R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Labyrinth/Private/Misc/LRPickups.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +30,20 @@
     <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectId" id="2SIk6znYR810J5r7lJiWvbWuYaA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Grenade-System&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Inventory&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -130,14 +129,45 @@
       <workItem from="1688996567627" duration="2287000" />
       <workItem from="1689528979418" duration="1744000" />
       <workItem from="1689589845585" duration="1900000" />
-      <workItem from="1689594994548" duration="7618000" />
+      <workItem from="1689594994548" duration="8204000" />
+      <workItem from="1689607601036" duration="5296000" />
+      <workItem from="1689864614727" duration="1220000" />
+      <workItem from="1689949861444" duration="529000" />
+      <workItem from="1690124554840" duration="6264000" />
+      <workItem from="1690210695508" duration="2711000" />
+      <workItem from="1690286164522" duration="2037000" />
+      <workItem from="1690892711156" duration="6525000" />
+      <workItem from="1691054193688" duration="10202000" />
+      <workItem from="1691070860840" duration="3602000" />
+      <workItem from="1691158102246" duration="1541000" />
+      <workItem from="1692271769722" duration="4935000" />
+      <workItem from="1692569235855" duration="742000" />
+      <workItem from="1693166125895" duration="1296000" />
+      <workItem from="1693676234192" duration="135000" />
+      <workItem from="1693678158717" duration="1324000" />
+      <workItem from="1698157941974" duration="8747000" />
+      <workItem from="1698500645637" duration="509000" />
+      <workItem from="1698501762311" duration="824000" />
+      <workItem from="1698509400041" duration="2167000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
